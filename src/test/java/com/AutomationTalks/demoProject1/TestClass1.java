@@ -1,9 +1,14 @@
 package com.AutomationTalks.demoProject1;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -15,9 +20,15 @@ public class TestClass1 {
 	
 	
 	@BeforeMethod
-	public void launchDriver() {
+	public void launchDriver() throws MalformedURLException {
+		DesiredCapabilities dr = null;
+		dr = DesiredCapabilities.chrome();
+		dr.setBrowserName("chrome");
+		dr.setPlatform(Platform.WIN10);
 		System.setProperty("webdriver.chrome.driver", "P:\\2. Selenium Data\\Drivers\\chromedriver.exe");
-		driver = new ChromeDriver();
+		
+		driver = new RemoteWebDriver(new URL("http://192.168.1.104:4444/wd/hub"), dr);
+		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().fullscreen();
 	}
