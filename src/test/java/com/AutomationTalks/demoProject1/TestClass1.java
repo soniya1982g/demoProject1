@@ -17,25 +17,17 @@ public class TestClass1 {
 	
 	
 	public static WebDriver driver;
-	public static final String USERNAME = "prakashnarkhede2";
-	  public static final String AUTOMATE_KEY = "z5xpiZUpAxSuo73eLvYo";
-	  public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
-
 	
 	
 	@BeforeMethod
 	public void launchDriver() throws MalformedURLException {
-		DesiredCapabilities caps = new DesiredCapabilities();
-	    caps.setCapability("browser", "Firefox");
-	    caps.setCapability("browser_version", "60.0");
-	    caps.setCapability("os", "Windows");
-	    caps.setCapability("os_version", "7");
-	    caps.setCapability("resolution", "1024x768");
-	    caps.setCapability("project", "AutomationTalksProject");
-	    caps.setCapability("build", "Build1");
-	    caps.setCapability("name", "TestCaseName"); 
-
-	    driver = new RemoteWebDriver(new URL(URL), caps);
+		DesiredCapabilities dr = null;
+		dr = DesiredCapabilities.chrome();
+		dr.setBrowserName("chrome");
+		dr.setPlatform(Platform.LINUX);
+		System.setProperty("webdriver.chrome.driver", "P:\\2. Selenium Data\\Drivers\\chromedriver.exe");
+		
+		driver = new RemoteWebDriver(new URL("http://localhost:4446/wd/hub"), dr);
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().fullscreen();
