@@ -7,9 +7,7 @@
         <methods>
           <include name="Test3"/>
           <include name="quit"/>
-          <include name="Test2"/>
           <include name="launchDriver"/>
-          <include name="Test1"/>
         </methods>
       </class> <!-- com.AutomationTalks.demoProject1.TestClass1 -->
     </classes>
