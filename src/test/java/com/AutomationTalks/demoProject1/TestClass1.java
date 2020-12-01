@@ -39,9 +39,7 @@ public class TestClass1 {
 		
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().fullscreen();
-		username = soniya();
-		password= 'soniya1'
-			
+		
 	}
 	
 	@Test
@@ -73,6 +71,8 @@ public class TestClass1 {
 			JiraClient jira = new JiraClient("http://localhost:8081", creds);
 			Issue issueName = jira.createIssue("AUT", "Bug").field(Field.SUMMARY, result.getMethod().getMethodName() +"is failed due to: "+ result.getThrowable().toString()).field(Field.DESCRIPTION, "get the description").execute();
 			System.out.println("Issue is created in JIRA with issue key: "+issueName.getKey());
+			
+			
 		}
 		
 		
