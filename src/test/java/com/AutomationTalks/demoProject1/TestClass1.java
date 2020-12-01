@@ -40,7 +40,7 @@ public class TestClass1 {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().fullscreen();
 		username = soniya();
-		password= 'soniya'
+		password= 'soniya1'
 			
 	}
 	
